@@ -138,12 +138,12 @@ The full list of variables (use abbreviation explanation above to parse, those w
   * MEAN fBodyBodyAccJerkMag.std..
   * MEAN fBodyBodyGyroMag.std..
   * MEAN fBodyBodyGyroJerkMag.std..
+  
+	  
 
-		  
 
- --------------------------------
- 
- An example to break down the difference between raw & tidy data is helpful, as we have "mean" calculated in the raw data and "mean of a mean" in tidy:
+
+An example to break down the difference between raw & tidy data is helpful, as we have "mean" calculated in the raw data and "mean of a mean" in tidy:
 > A single observation in the raw data might represent a subject walking for 5 minutes.  Each of many different motion
 > parameters are measured 50X per second over this 5 minutes.  The mean, max, standard deviation & other statistical 
 > parameters of this 5 minute walk (50x60x5 = 15000 measurements)are calculated for each motion parameter and appear in 
