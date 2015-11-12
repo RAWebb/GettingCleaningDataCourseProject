@@ -59,9 +59,11 @@ Preliminary steps:
 The run_analysis.R script assumes the raw data have been downloaded and unzipped to R's current working
 directory, following the same directory structure provided in the .zip.  If this isn't the case, execute
 the following in R:
-* download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", "UCI_HAR_dataset.zip")
-* unzip("UCI_HAR_dataset.zip")
- 
+```
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", "UCI_HAR_dataset.zip")
+
+unzip("UCI_HAR_dataset.zip")
+``` 
  I first read the variable names (labels) from features.txt, then read each of the data frames to be used
 via the read.table() function while at the same time assigning variable names to the data frames.  This actually 
 constitutes step 4.) of the processing, but assigning names here seems far more logical, less error prone, and 
@@ -70,9 +72,9 @@ makes subsequent manipulations easier.  Not sure why it is recommended as step 4
  
 Step 1:
 -------------------
-'''
+```
 Merge the training and the test sets to create one data set.
-'''
+```
 
 There are various functions that could be used, but here, we're just sticking together tables based on rows & 
 columns, there's no real matching of the data or keys or indexing involved.  Just a 1-to-1 match of columns 
@@ -82,8 +84,8 @@ then rows, so a simple cbind & rbind seems appropriate.
 
 Step 2:
 -------------------
-'''Extract only the measurements on the mean and standard deviation for each measurement. 
-'''
+```Extract only the measurements on the mean and standard deviation for each measurement. 
+```
 
 The exact list of variables which were intended to be extracted is left (intentionally?) vague.  
 Compounding the issue is that authors of the original dataset were brief in their descriptions of the
@@ -115,9 +117,9 @@ that they should be included in the extracted data.
 
 Step 3:
 ------------------------
-'''
+```
 Use descriptive activity names to name the activities in the data set
-'''
+```
 Activity levels were already defined as factors when data was read into R, so we use revalue() to change the names 
 of the factors.  Note revalue() comes from the plyr  package and when using both plyr  & dplyr  packages, plyr should 
 generally be loaded first, otherwise it could interfere with dplyr functions such as summarize().
@@ -125,9 +127,9 @@ generally be loaded first, otherwise it could interfere with dplyr functions suc
 
 Step 4:
 ------------------------
-'''
+```
 Appropriately label the data set with descriptive variable names.
-'''
+```
 
 I incorporate labelling of the data into the read of the data into R, prior to step 1.
 
@@ -150,10 +152,10 @@ Description of the variables & variable names is discussed in the next section.
 
 Step 5:
 ------------------------
-'''
+```
 From the data set in step 4, creates a second, independent tidy data set  with the average of each variable for each 
 activity and each subject.
-'''
+```
 
 The grading rubric for the assignment indicates that either the long form or the wide form of tidy data is acceptable 
 for this project.  I have opted to use the wide format here for several reasons:
