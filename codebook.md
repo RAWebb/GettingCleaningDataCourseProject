@@ -139,6 +139,7 @@ The full list of variables (use abbreviation explanation above to parse, those w
   * MEAN fBodyBodyGyroMag.std..
   * MEAN fBodyBodyGyroJerkMag.std..
 
+		  
 
  --------------------------------
  
