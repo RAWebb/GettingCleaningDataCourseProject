@@ -11,7 +11,7 @@ Course Project for "Getting and Cleaning Data"
 Files in repository:
 ========================
 *	README.md  -  This document.  Contains:  
-  1.) Explains files present in this repo. 
+  1.) Explaination of files present in this repo. 
 
   2.) Summary outline of the overall data processing procedure as executed by run_analysis.R.  A more detailed discussion is in codebook.md  
 
@@ -46,7 +46,7 @@ Raw data :
     * `UCI HAR Dataset/train/X_train.txt`   Same as above for the "train" dataset.
   * `UCI HAR Dataset/test/y_test.txt`  Activity codes corresponding to each observation in X_test.txt
     * `UCI HAR Dataset/train/y_train.txt`   Same as above for the "train" dataset.
-  *Files in `UCI HAR Dataset/test/Inertial Signals` and `UCI HAR Dataset/train/Inertial Signals` not used in this project.	
+  * Files in `UCI HAR Dataset/test/Inertial Signals` and `UCI HAR Dataset/train/Inertial Signals` not used in this project.	
   
 Outline of data processing:
 ---------------------------

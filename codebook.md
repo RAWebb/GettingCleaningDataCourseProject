@@ -1,11 +1,11 @@
 # Codebook
-
+==========================================
 
 ####Course Project for "Getting and Cleaning Data"
 Part of the Data Science Specialization offered by Johns-Hopkins Univ  hosted by Coursera.org.
-==========================================
 
-##R.A. Webb
+
+####R.A. Webb
 November 2015
 -----------------
 
@@ -16,11 +16,14 @@ generating a tidy set.
 
 Instructions copied from course pages:
 
-The purpose of this project is to demonstrate your ability to collect, work with, and clean a data set. The goal 
-is to prepare tidy data that can be used for later analysis. You will be graded by your peers on a series of 
-yes/no questions related to the project. You will be required to submit: 
+>The purpose of this project is to demonstrate your ability to collect, work with, and clean a data set. The goal 
+>is to prepare tidy data that can be used for later analysis. You will be graded by your peers on a series of 
+>yes/no questions related to the project. You will be required to submit: 
+
 1.) a tidy data set as described below, 
+
 2.) a link to a Github repository with your script for performing the analysis, and 
+
 3.) a code book that describes the variables, the data, and any transformations or work that you performed to 
 clean up the data called CodeBook.md. 
 
@@ -61,10 +64,12 @@ Note: characters "-", "(" and ")" in the authors labels have been replaced by ".
   * Acc or Gyro.  Data as measured by accelerometer  or gyroscope sensor.
   * Jerk.  Measuring change in acceleration.
   * Mag.  Magnitude of signal independent of spatial direction. Combines XYZ signals.
-  * Angle.  Angle between 2 vectors, not used in this project.
+  * Angle.  Angle between directional 2 vectors, not used in this project.
 * After first ".", statistical and computed physical quantities:
-  * mean, std, meanFreq.   mean, standard deviation and mean frequency of signals in Fourier domain, repsectively.  These are used in the project.
-  * max, min, mad, sma, energy, arCoeff, correlation, igr, entropy, skewness, kurtosis, maxInds, bandsEnergy:  Other statistical and derived physical quantities not used in this project.
+  * mean, std, meanFreq:  	   
+    * mean, standard deviation and mean frequency of signals in Fourier domain, repsectively.  These are used in the project.
+  * max, min, mad, sma, energy, arCoeff, correlation, igr, entropy, skewness, kurtosis, maxInds, bandsEnergy:  
+    * Other statistical and derived physical quantities not used in this project.
 * After "..."
   * X, Y, Z.  Spatial dimensions for measurements (direction).
   * Numbers.  Coefficients and bands.  Not used in this project.
@@ -82,51 +87,92 @@ Subject_ID and activity represent the ID# of the study participant and the activ
 
 The remainder of the columns follow the naming scheme of the original dataset (outlined above).  The values in HAR_tidy.txt are means of all the observations for a particular subject & activity indicated by capital MEAN prefix (see example below). 
 The full list of variables (use abbreviation explanation above to parse, those with XYZ represent 3 separate variables):
+
   *MEAN tBodyAcc.mean...XYZ
+
   *MEAN tGravityAcc.mean...XYZ
+
   *MEAN tBodyAccJerk.mean...XYZ
+
   *MEAN tBodyGyro.mean...XYZ
+
   *MEAN tBodyGyroJerk.mean...XYZ
+
   *MEAN tBodyAccMag.mean..
+
   *MEAN tGravityAccMag.mean..
+
   *MEAN tBodyAccJerkMag.mean..
+
   *MEAN tBodyGyroMag.mean..
+
   *MEAN tBodyGyroJerkMag.mean..
+
   *MEAN fBodyAcc.mean...XYZ
+
   *MEAN fBodyAcc.meanFreq...XYZ
+
   *MEAN fBodyAccJerk.mean...XYZ
+
   *MEAN fBodyAccJerk.meanFreq...XYZ
+
   *MEAN fBodyGyro.mean...XYZ
+
   *MEAN fBodyGyro.meanFreq...XYZ
+
   *MEAN fBodyAccMag.mean..
+
   *MEAN fBodyAccMag.meanFreq..  
+
   *MEAN fBodyAccJerkMag.mean..
+
   *MEAN fBodyBodyAccJerkMag.meanFreq..  
+
   *MEAN fBodyGyroMag.mean..
+
   *MEAN fBodyBodyGyroMag.meanFreq..  
+
   *MEAN fBodyGyroJerkMag.mean..
+
   *MEAN fBodyBodyGyroJerkMag.meanFreq..
+
   *MEAN tBodyAcc.std...XYZ
+
   *MEAN tGravityAcc.std...XYZ
+
   *MEAN tBodyAccJerk.std...XYZ
+
   *MEAN tBodyGyro.std...XYZ
+
   *MEAN tBodyGyroJerk.std...XYZ
+
   *MEAN tBodyAccMag.std..
+
   *MEAN tGravityAccMag.std..
+
   *MEAN tBodyAccJerkMag.std..
+
   *MEAN tBodyGyroMag.std..
+
   *MEAN tBodyGyroJerkMag.std..
+
   *MEAN fBodyAcc.std...XYZ
+
   *MEAN fBodyAccJerk.std...XYZ
+
   *MEAN fBodyGyro.std...XYZ
+
   *MEAN fBodyAccMag.std..
+
   *MEAN fBodyBodyAccJerkMag.std..
+
   *MEAN fBodyBodyGyroMag.std..
+
   *MEAN fBodyBodyGyroJerkMag.std..
   
  
  An example to break down the difference between raw & tidy data is helpful, as we "mean" in the raw and "mean of a mean" in tidy:
-* A single observation in the raw data might represent a subject walking for 5 minutes.  Each of many different motion parameters are measured 50X per second over this 5 minutes.  The mean, max, standard deviation & other statistical parameters of this 5 minute walk (50*60*5 = 15000 measurements)are calculated for each motion parameter and appear in raw data. The subject will then do several more walks and the measurements for each will appear as a separate observation (row) in the raw data.   In step 2 I extract only the mean and standard deviation measurements to our dataset, but each row still just represents 1 observation (1 walk).  In step 5, I calculate the mean over all the sessions of walking for a subject and get the overall walking average.
+* A single observation in the raw data might represent a subject walking for 5 minutes.  Each of many different motion parameters are measured 50X per second over this 5 minutes.  The mean, max, standard deviation & other statistical parameters of this 5 minute walk (50x60x5 = 15000 measurements)are calculated for each motion parameter and appear in raw data. The subject will then do several more walks and the measurements for each walk will appear as a separate observation (row) in the raw data.   In step 2, I extract only the mean and standard deviation measurements to our dataset, but each row still just represents 1 observation (1 walk).  In step 5, I calculate the mean over all the sessions of walking for a subject and get the overall walking average.
 
 
 Raw data:
@@ -147,10 +193,8 @@ download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUC
 
 unzip("UCI_HAR_dataset.zip")
 ``` 
- I first read the variable names (labels) from features.txt, then read each of the data frames to be used
-via the read.table() function while at the same time assigning variable names to the data frames.  This actually 
-constitutes step 4.) of the processing, but assigning names here seems far more logical, less error prone, and 
-makes subsequent manipulations easier.  Not sure why it is recommended as step 4.
+ I first read the variable names (labels) from `features.txt	, then read each of the data frames to be used via the `read.table()` function while at the same time assigning variable names from `features.txt` to the data frames.  This actually constitutes step 4.) of the processing, but assigning names here seems far more logical, less error prone, and makes subsequent manipulations easier.  
+ I'm not sure why it is recommended as step 4.
 
  
 Step 1:
