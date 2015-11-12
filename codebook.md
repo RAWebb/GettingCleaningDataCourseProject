@@ -138,7 +138,8 @@ The full list of variables (use abbreviation explanation above to parse, those w
   * MEAN fBodyBodyAccJerkMag.std..
   * MEAN fBodyBodyGyroMag.std..
   * MEAN fBodyBodyGyroJerkMag.std..
-  
+
+
  --------------------------------
  
  An example to break down the difference between raw & tidy data is helpful, as we have "mean" calculated in the raw data and "mean of a mean" in tidy:
