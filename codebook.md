@@ -1,12 +1,15 @@
-# Codebook
+Codebook
 ==========================================
 
 ####Course Project for "Getting and Cleaning Data"
 Part of the Data Science Specialization offered by Johns-Hopkins Univ  hosted by Coursera.org.
 
+-------------------------
 
 ####R.A. Webb
 November 2015
+
+
 -----------------
 
 
