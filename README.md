@@ -1,15 +1,17 @@
 
 Course Project for "Getting and Cleaning Data"
 ==========================================
-###Part of the Data Science Specialization offered by Johns-Hopkins Univ; hosted by Coursera.org.
+
+#####Part of the Data Science Specialization offered by Johns-Hopkins Univ; hosted by Coursera.org.
 
 
-##R.A. Webb
-####November 2015 session.
+####R.A. Webb
+November 2015 session.
 
+---------------------------
 
 Files in repository:
-========================
+------------------------------
 *	README.md  -  This document.  Contains:  
   1.) Explaination of files present in this repo. 
 
@@ -51,8 +53,11 @@ Raw data :
 Outline of data processing:
 ---------------------------
 Script created in R version 3.1.1.  Running on Windows 8.1; 64-bit platform.
+
 1.) Download & unzip dataset from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
-2.) Execute run_analysis.R script.  This script:
+
+2.) Execute run_analysis.R script.  
+This script:
   * Reads all relevant data files into R.
   * Attaches labels to the variables.
   * Attaches the appropriate Subject & Activity Labels to each observation
@@ -69,6 +74,5 @@ References:
 ===========================
 
 Dataset comes from:
-Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones 
-using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). 
-Vitoria-Gasteiz, Spain. Dec 2012
+
+Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012

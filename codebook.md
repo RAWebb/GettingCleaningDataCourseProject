@@ -84,9 +84,7 @@ These follow the naming scheme from original data, but description has been expa
 
   
 ## Units of measurements:
-* Authors state that the units for measurements in the inertial signals datasets  are in g's for accelerations  and 
-radians / sec for angular velocities.  Presumably these carry over to the other datasets.  Also presumably, the Jerk measurements 
-are derivatives done in the same units so g/sec and radians/s^2.
+Authors state that the units for measurements in the inertial signals datasets  are in g's for accelerations  and radians / sec for angular velocities.  Presumably these carry over to the other datasets.  Also presumably, the Jerk measurements are  done in the same system of units so g/sec and radians/s^2.
 
 
 Variables in tidy dataset:  HAR_tidy.txt
@@ -96,6 +94,10 @@ Variables in tidy dataset:  HAR_tidy.txt
 * The remainder of the columns follow the naming scheme of the original dataset (outlined above).  The values in HAR_tidy.txt are means of all the observations for a particular subject & activity indicated by capital MEAN prefix (see example below).
 The full list of variables (use abbreviation explanation above to parse, those with XYZ represent 3 separate variables):
 
+  *Subject_ID
+  
+  *Activity
+  
   *MEAN tBodyAcc.mean...XYZ
 
   *MEAN tGravityAcc.mean...XYZ
@@ -178,6 +180,7 @@ The full list of variables (use abbreviation explanation above to parse, those w
 
   *MEAN fBodyBodyGyroJerkMag.std..
   
+ --------------------------------
  
  An example to break down the difference between raw & tidy data is helpful, as we have "mean" calculated in the raw data and "mean of a mean" in tidy:
 > A single observation in the raw data might represent a subject walking for 5 minutes.  Each of many different motion
@@ -236,13 +239,13 @@ The easiest route would be to extract all columns whose headers contain "mean" o
 
 * There is no ambiguity in the standard deviation variables.  All columns which contain "std" in the header are actual statistical measurements of the standard deviation of the quantity in question.
 
-*  Similarly all those that contain ".mean" are averages of actual measurements. Those in the "f" frequency domain are still amplitude signals.   NOTE: "-", "(" and ")"  from features.txt  file has been replaced with "." in dataframe column headers.
+*  Similarly all those that contain ".mean.." ("-mean()" in the original data labels) are averages of actual measurements. Those in the "f" frequency domain are still amplitude signals.   
 
 * ambiguous case 1:  Measured angles which contain:  tBodyAccMean, tBodyAccJerkMean, gravityMean or tBodyGyroMean.  
-Each of these variables is associated with an "Angle", measuring the angular separation between 2 vectors.  The fact that these vectors are derived from averages of other quantities, does not make these measurements a mean of anything.  There is no averaging involved in calculating these values.  Once the vectors have been calculated, these actual measure of angle are fixed and there is no averaging to derive these quantities.   Thus, I opt to exclude these variables in the extracted dataset.
+Each of these variables is associated with an "Angle", measuring the angular separation between 2 vectors.  The fact that these vectors are derived from averages of other quantities, does not make these measurements a mean of anything.  There is no averaging involved in calculating these values.  Once the vectors have been calculated, these actual measures of angle are fixed and there is no averaging to derive these quantities.   Thus, I opt to exclude these variables in the extracted dataset.
 
 * ambiguous case 2:  Columns which contain ".meanfreq()"  in the header.  
-These measure the average frequency of components of the Fourier transform of the quantity in question.  While they are not averages of physically measured quantities, and they represent average frequencies instead of amplitudes in the other variables, they still are averages of quantities mathematically derived from the measurements (frequencies in Fourier domain).  Thus, my interpretation is that they should be included in the extracted data.
+These measure the average frequency of components of the Fourier transform of the quantity in question.  While they are not averages of physically measured quantities, and they represent average frequencies instead of amplitudes as with the other variables, they still are averages of quantities mathematically derived from the measurements (frequencies in Fourier domain).  Thus, my interpretation is that they should be included in the extracted data.
 
 
 Step 3:
@@ -250,7 +253,7 @@ Step 3:
 ```
 Use descriptive activity names to name the activities in the data set
 ```
-Activity levels were already defined as factors when data was read into R, so we use revalue() to change the names of the factors.  Note revalue() comes from the plyr  package and when using both plyr  & dplyr  packages, plyr should generally be loaded first, otherwise it could interfere with dplyr functions such as summarize().
+Activity code (1-6) were already defined as factors when data was read into R, so we use revalue() to change the names of the factors.  Note revalue() comes from the plyr  package and when using both plyr  & dplyr  packages, plyr should generally be loaded first, otherwise it could interfere with dplyr functions such as summarize().
 
 
 Step 4:
@@ -263,12 +266,11 @@ I incorporate labelling of the data into the read of the data into R, prior to s
 
 Seems easier, less error prone & more logical than trying to maintain the structure through all the manipulations and then match up labels at the end.
 
-While the variable names from the original data are somewhat dense & tricky to parse they contain all the necessary info to use in conjunction with the feature_info.txt file from the zipped dataset (also reproduced at the bottom of this document) to derive the meaning of each variable.  Hence, the names are quite descriptive and well chosen for a dataset with such a large number of similar & complex variables. 
+While the variable names from the original data are somewhat dense & tricky to parse they contain all the necessary info to use in conjunction with the feature_info.txt file from the zipped dataset (also reproduced above in the "Description of Variables" section) to derive the meaning of each variable.  Hence, the names are quite descriptive and well chosen for a dataset with such a large number of similar & complex variables. 
 
 
-Note that R has replace certain characters such as "-", "(", ")"  with "." but this doesn't impair deciphering the meaning at all.
+Note that R has replace certain characters such as "-", "(", ")"  with "." but this doesn't impair deciphering their meaning.
 
-Description of the variables & variable names is discussed in the next section.
 
 Step 5:
 ------------------------
@@ -282,12 +284,11 @@ The grading rubric for the assignment indicates that either the long form or the
 
 2.)  While long-form data may be preferred or even required by some R functions, visually the long-form of the data is quite impractical for human readability.  
 
-3.) Many of the measured variables are very closely related to one another.  For example, the 3 separate spatial components of many of the measurements really must be combined & analyzed together to understand the nature of the motion.  Thus, it makes sense to keep the data in a form where related measurements stay together & is obvious how 
-they group.
+3.) Many of the measured variables are very closely related to one another.  For example, the 3 separate spatial components of many of the measurements really must be combined & analysed together to understand the nature of the motion.  Thus, it makes sense to keep the data in a form where related measurements stay together in a single row & makes it obvious how they group.
 
 4.)  There is much less repetition in the wide-form of the tidy dataset for this case.  The long form would include repeating the somewhat long & unwieldy variable names 180 times for each of 79 measured variables meaning the variable names would appear over 14000 times.
 
 
-In any event, the delivered data should be considered tidy as each column represents one variable.  And each row represents 1 observation of each of those variables.  As well, the dataset contains a header row with variable names.
+#####In any event, the delivered data should be considered tidy as each column represents one variable.  And each row represents 1 observation of each of those variables.  As well, the dataset contains a header row with variable names.
 
 
