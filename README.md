@@ -5,7 +5,7 @@ Course Project for "Getting and Cleaning Data"
 #####Part of the Data Science Specialization offered by Johns-Hopkins Univ; hosted by Coursera.org.
 
 
-####R.A. Webb
+###R.A. Webb
 November 2015 session.
 
 ---------------------------
@@ -65,7 +65,7 @@ This script:
   * Extracts only those variables measuring a mean or standard deviation of a measured quantity.
   * Converts integer factor levels for Activities into descriptive text names.
   * Creates new dataset consisting of the calculated mean of all remaining variables by subject and activity.  That is, creates 1 overall mean for each variable for each subject/activity pairing.
-  * Relabels variable in new dataset to indicate mean has been taken.
+  * Relabels variables in new dataset to indicate mean has been taken.
   * Writes resultant tidy dataset to a text file:  `HAR_tidy.txt`
 
 

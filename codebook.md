@@ -15,7 +15,7 @@ November 2015 session.
 
 ### Description:
 This project is intended to demonstrate some basic data cleaning skills and show the process for 
-generating a tidy set.
+generating a tidy data set.
 
 Instructions copied from course pages:
 
@@ -92,93 +92,52 @@ Variables in tidy dataset:  HAR_tidy.txt
 * Subject_ID and activity represent the ID# of the study participant and the activity for which the measurements were taken.
 
 * The remainder of the columns follow the naming scheme of the original dataset (outlined above).  The values in HAR_tidy.txt are means of all the observations for a particular subject & activity indicated by capital MEAN prefix (see example below).
+
 The full list of variables (use abbreviation explanation above to parse, those with XYZ represent 3 separate variables):
 
-  *Subject_ID
-  
-  *Activity
-  
-  *MEAN tBodyAcc.mean...XYZ
-
-  *MEAN tGravityAcc.mean...XYZ
-
-  *MEAN tBodyAccJerk.mean...XYZ
-
-  *MEAN tBodyGyro.mean...XYZ
-
-  *MEAN tBodyGyroJerk.mean...XYZ
-
-  *MEAN tBodyAccMag.mean..
-
-  *MEAN tGravityAccMag.mean..
-
-  *MEAN tBodyAccJerkMag.mean..
-
-  *MEAN tBodyGyroMag.mean..
-
-  *MEAN tBodyGyroJerkMag.mean..
-
-  *MEAN fBodyAcc.mean...XYZ
-
-  *MEAN fBodyAcc.meanFreq...XYZ
-
-  *MEAN fBodyAccJerk.mean...XYZ
-
-  *MEAN fBodyAccJerk.meanFreq...XYZ
-
-  *MEAN fBodyGyro.mean...XYZ
-
-  *MEAN fBodyGyro.meanFreq...XYZ
-
-  *MEAN fBodyAccMag.mean..
-
-  *MEAN fBodyAccMag.meanFreq..  
-
-  *MEAN fBodyAccJerkMag.mean..
-
-  *MEAN fBodyBodyAccJerkMag.meanFreq..  
-
-  *MEAN fBodyGyroMag.mean..
-
-  *MEAN fBodyBodyGyroMag.meanFreq..  
-
-  *MEAN fBodyGyroJerkMag.mean..
-
-  *MEAN fBodyBodyGyroJerkMag.meanFreq..
-
-  *MEAN tBodyAcc.std...XYZ
-
-  *MEAN tGravityAcc.std...XYZ
-
-  *MEAN tBodyAccJerk.std...XYZ
-
-  *MEAN tBodyGyro.std...XYZ
-
-  *MEAN tBodyGyroJerk.std...XYZ
-
-  *MEAN tBodyAccMag.std..
-
-  *MEAN tGravityAccMag.std..
-
-  *MEAN tBodyAccJerkMag.std..
-
-  *MEAN tBodyGyroMag.std..
-
-  *MEAN tBodyGyroJerkMag.std..
-
-  *MEAN fBodyAcc.std...XYZ
-
-  *MEAN fBodyAccJerk.std...XYZ
-
-  *MEAN fBodyGyro.std...XYZ
-
-  *MEAN fBodyAccMag.std..
-
-  *MEAN fBodyBodyAccJerkMag.std..
-
-  *MEAN fBodyBodyGyroMag.std..
-
-  *MEAN fBodyBodyGyroJerkMag.std..
+  * Subject_ID
+  * Activity  
+  * MEAN tBodyAcc.mean...XYZ
+  * MEAN tGravityAcc.mean...XYZ
+  * MEAN tBodyAccJerk.mean...XYZ
+  * MEAN tBodyGyro.mean...XYZ
+  * MEAN tBodyGyroJerk.mean...XYZ
+  * MEAN tBodyAccMag.mean..
+  * MEAN tGravityAccMag.mean..
+  * MEAN tBodyAccJerkMag.mean..
+  * MEAN tBodyGyroMag.mean..
+  * MEAN tBodyGyroJerkMag.mean..
+  * MEAN fBodyAcc.mean...XYZ
+  * MEAN fBodyAcc.meanFreq...XYZ
+  * MEAN fBodyAccJerk.mean...XYZ
+  * MEAN fBodyAccJerk.meanFreq...XYZ
+  * MEAN fBodyGyro.mean...XYZ
+  * MEAN fBodyGyro.meanFreq...XYZ
+  * MEAN fBodyAccMag.mean..
+  * MEAN fBodyAccMag.meanFreq..
+  * MEAN fBodyAccJerkMag.mean..
+  * MEAN fBodyBodyAccJerkMag.meanFreq..  
+  * MEAN fBodyGyroMag.mean..
+  * MEAN fBodyBodyGyroMag.meanFreq..  
+  * MEAN fBodyGyroJerkMag.mean..
+  * MEAN fBodyBodyGyroJerkMag.meanFreq..
+  * MEAN tBodyAcc.std...XYZ
+  * MEAN tGravityAcc.std...XYZ
+  * MEAN tBodyAccJerk.std...XYZ
+  * MEAN tBodyGyro.std...XYZ
+  * MEAN tBodyGyroJerk.std...XYZ
+  * MEAN tBodyAccMag.std..
+  * MEAN tGravityAccMag.std..
+  * MEAN tBodyAccJerkMag.std..
+  * MEAN tBodyGyroMag.std..
+  * MEAN tBodyGyroJerkMag.std..
+  * MEAN fBodyAcc.std...XYZ
+  * MEAN fBodyAccJerk.std...XYZ
+  * MEAN fBodyGyro.std...XYZ
+  * MEAN fBodyAccMag.std..
+  * MEAN fBodyBodyAccJerkMag.std..
+  * MEAN fBodyBodyGyroMag.std..
+  * MEAN fBodyBodyGyroJerkMag.std..
   
  --------------------------------
  
