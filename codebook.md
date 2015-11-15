@@ -116,11 +116,11 @@ The full list of variables (use abbreviation explanation above to parse, those w
   * MEAN fBodyAccMag.mean..
   * MEAN fBodyAccMag.meanFreq..
   * MEAN fBodyAccJerkMag.mean..
-  * MEAN fBodyBodyAccJerkMag.meanFreq..  
+  * MEAN fBodyAccJerkMag.meanFreq..  
   * MEAN fBodyGyroMag.mean..
-  * MEAN fBodyBodyGyroMag.meanFreq..  
+  * MEAN fBodyGyroMag.meanFreq..  
   * MEAN fBodyGyroJerkMag.mean..
-  * MEAN fBodyBodyGyroJerkMag.meanFreq..
+  * MEAN fBodyGyroJerkMag.meanFreq..
   * MEAN tBodyAcc.std...XYZ
   * MEAN tGravityAcc.std...XYZ
   * MEAN tBodyAccJerk.std...XYZ
@@ -135,9 +135,9 @@ The full list of variables (use abbreviation explanation above to parse, those w
   * MEAN fBodyAccJerk.std...XYZ
   * MEAN fBodyGyro.std...XYZ
   * MEAN fBodyAccMag.std..
-  * MEAN fBodyBodyAccJerkMag.std..
-  * MEAN fBodyBodyGyroMag.std..
-  * MEAN fBodyBodyGyroJerkMag.std..
+  * MEAN fBodyAccJerkMag.std..
+  * MEAN fBodyGyroMag.std..
+  * MEAN fBodyGyroJerkMag.std..
   
 	  
 
@@ -171,7 +171,7 @@ download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUC
 
 unzip("UCI_HAR_dataset.zip")
 ``` 
- I first read the variable names (labels) from `features.txt`, then read each of the data frames to be used via the `read.table()` function while at the same time assigning variable names from `features.txt` to the data frames.  This actually constitutes step 4.) of the project instructions, but assigning names here seems far more logical, less error prone, and makes subsequent manipulations easier.
+ I first read the variable names (labels) from `features.txt`, and corrected a few errors in the provided names (specifically the keyword "Body" was duplicated in several variable names as "BodyBody"). Then the required data files are read into data frames to be used via the `read.table()` function while at the same time assigning the corrected variable names from `features.txt` to the data frames.  This actually constitutes step 4.) of the project instructions, but assigning names here seems far more logical, less error prone, and makes subsequent manipulations easier.
  
  I'm not sure why it is recommended as step 4.
 

@@ -23,10 +23,13 @@ library(dplyr)
 ##     Note:  I incorporate step 4 (labeling variables) into the read of the 
 ##            files.  see codebook.md for discussion. 
 ##
-##      First read the variable names, and assign names during read.  
+##      First read the variable names, correct a few errors in orginal names and 
+##      assign names during read.  
 
 features <- read.table("UCI HAR Dataset/features.txt", header=FALSE)
 features <- as.vector(features$V2)
+features <- gsub("BodyBody", "Body", features)
+
 
 x_test        <- read.table("UCI HAR Dataset/test/X_test.txt",    
                             header=FALSE, col.names = features)
@@ -117,7 +120,8 @@ HAR_tidy <-
         summarise_each(funs(mean), -Subject_ID, -Activity) %>%
         arrange(Subject_ID, desc(Activity))
 
-names(HAR_tidy[3:81]) <- paste("MEAN", names(HAR_tidy[3:81]))
+#   Rename the measured variables to indicate mean:
+names(HAR_tidy)[3:81] <- paste("MEAN", names(HAR_tidy)[3:81])
 
 write.table(HAR_tidy, file="HAR_tidy.txt", row.names = FALSE)
 

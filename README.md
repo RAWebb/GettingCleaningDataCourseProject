@@ -59,9 +59,10 @@ Script created in R version 3.1.1.  Running on Windows 8.1; 64-bit platform.
 2.) Execute run_analysis.R script.  
 This script:
   * Reads all relevant data files into R.
-  * Attaches labels to the variables.
+  * Corrects errors in some of variable names.
+  * Attaches corrected labels to the variables.
   * Attaches the appropriate Subject & Activity Labels to each observation
-  * Combines the Test and Train datasets into one R dataframe.
+  * Combines the Test and Train datasets into one R data frame.
   * Extracts only those variables measuring a mean or standard deviation of a measured quantity.
   * Converts integer factor levels for Activities into descriptive text names.
   * Creates new dataset consisting of the calculated mean of all remaining variables by subject and activity.  That is, creates 1 overall mean for each variable for each subject/activity pairing.
